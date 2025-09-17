@@ -1,9 +1,9 @@
 import { Routes, Route } from "react-router-dom"
 import { Box } from "@chakra-ui/react"
-import Header from "./components/Header"
-import Home from "./pages/Home"
-import Store from "./pages/Store"
-import Cart from "./pages/Cart"
+import Header from "./components/Header/Header"
+import Home from "./pages/Home/Home"
+import Store from "./pages/Store/Store"
+import Cart from "./pages/Cart/Cart"
 
 
 function App() {
