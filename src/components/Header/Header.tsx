@@ -3,7 +3,7 @@ import { ColorModeButton, useColorModeValue } from "../ui/color-mode"
 
 const Header = () => {
   return (
-    <Flex p="4" bg={useColorModeValue('gray.100', 'gray.700')} justifyContent={'space-between'}>
+    <Flex p="4" bg={useColorModeValue('gray.100', 'gray.700')} justifyContent={'space-between'} shadow={'sm'}>
         <Flex gap="4" w={'100%'} justifyContent={'flex-start'}>
             <Link href="/" >
                 Home
