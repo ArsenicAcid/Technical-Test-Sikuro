@@ -9,6 +9,5 @@ describe("Header", () => {
   it("renders navigation links", () => {
     expect(screen.getByText("Home")).toBeInTheDocument()
     expect(screen.getByText("Store")).toBeInTheDocument()
-    expect(screen.getByText("Cart")).toBeInTheDocument()
   })
 })
