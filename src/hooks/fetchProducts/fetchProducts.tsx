@@ -1,4 +1,4 @@
-import type { Product } from "../assets/types/Product"
+import type { Product } from "../../assets/types/Product"
 import { useEffect, useState } from "react"
 
 export function useProducts() {
