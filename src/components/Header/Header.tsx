@@ -44,13 +44,17 @@ const Header = () => {
           <Flex
             position={"absolute"}
             bg={"red.500"}
-            w={"0.9rem"}
-            h={"0.9rem"}
+            w={"1rem"}
+            h={"1rem"}
             borderRadius={"full"}
             bottom={"0"}
             left={"0"}
             translate={"20% -20%"}
-          ></Flex>
+            justifyContent={"center"}
+            placeItems={"center"}
+            fontSize={"xs"}
+            color={"white"}
+          >1</Flex>
         </Button>
       </Flex>
     </Flex>
