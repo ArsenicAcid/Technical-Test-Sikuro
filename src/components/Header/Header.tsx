@@ -1,4 +1,4 @@
-import { Box, Link, Flex } from "@chakra-ui/react"
+import { Box, Link, Flex, Stack } from "@chakra-ui/react"
 import { ColorModeButton, useColorModeValue } from "../ui/color-mode"
 
 const Header = () => {
@@ -10,11 +10,11 @@ const Header = () => {
       justifyContent={"space-between"}
       shadow={"sm"}
     >
-      <Flex gap="4" w={"100%"} justifyContent={"flex-start"}>
+      <Stack gap="4" direction={"row"} w={"100%"} justifyContent={"flex-start"}>
         <Link href="/">Home</Link>
         <Link href="/store">Store</Link>
         <Link href="/cart">Cart</Link>
-      </Flex>
+      </Stack>
       <Box css={{ justifySelf: "flex-end" }}>
         <ColorModeButton />
       </Box>
