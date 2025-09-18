@@ -1,6 +1,9 @@
-import { Box, Link, Flex, Stack } from "@chakra-ui/react"
+import { Link, Flex, Stack, Button } from "@chakra-ui/react"
 import { ColorModeButton, useColorModeValue } from "../ui/color-mode"
-import { ShoppingCartIconBlack, ShoppingCartIconWhite } from "../../styles/icons"
+import {
+  ShoppingCartIconBlack,
+  ShoppingCartIconWhite,
+} from "../../assets/styles/icons"
 
 const Header = () => {
   return (
@@ -32,10 +35,23 @@ const Header = () => {
         <Link href="/store">Store</Link>
       </Stack>
       <Flex gap="2" alignItems={"center"}>
-        <ColorModeButton />
-        <Box w="1.4rem" h="1.4rem">
-        {useColorModeValue(<ShoppingCartIconBlack />, <ShoppingCartIconWhite />)}
-        </Box>
+        <ColorModeButton variant={"ghost"} />
+        <Button w="1.2rem" h="100%" variant={"ghost"}>
+          {useColorModeValue(
+            <ShoppingCartIconBlack />,
+            <ShoppingCartIconWhite />,
+          )}
+          <Flex
+            position={"absolute"}
+            bg={"red.500"}
+            w={"0.9rem"}
+            h={"0.9rem"}
+            borderRadius={"full"}
+            bottom={"0"}
+            left={"0"}
+            translate={"20% -20%"}
+          ></Flex>
+        </Button>
       </Flex>
     </Flex>
   )
