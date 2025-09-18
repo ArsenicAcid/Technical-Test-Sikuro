@@ -1,12 +1,12 @@
-import globals from 'globals'
-import tseslint from 'typescript-eslint'
+import globals from "globals";
+import tseslint from "typescript-eslint";
 import tsparser from "@typescript-eslint/parser";
 import prettierPlugin from "eslint-plugin-prettier";
 import prettierConfig from "eslint-config-prettier";
 
 export default [
   {
-    files: ['**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}'],
+    files: ["**/*.{js,mjs,cjs,ts,mts,cts,jsx,tsx}"],
     languageOptions: {
       ecmaVersion: 2020,
       globals: globals.browser,
@@ -20,11 +20,11 @@ export default [
     rules: {
       ...tseslint.configs.recommended.rules,
       ...prettierConfig.rules,
-      "@/no-unused-vars": "warn",
+      "@/no-unused-vars": "error",
       "no-console": "warn",
-      "semi": ["error", "always"],
-      "quotes": ["error", "double"],
+      semi: ["error", "never"],
+      quotes: ["error", "double"],
       "prettier/prettier": "error",
     },
   },
-]
+];
