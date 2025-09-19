@@ -24,6 +24,7 @@ export default tseslint.config(
       "@typescript-eslint/no-unused-vars": "error",
       "no-console": "warn",
       "prettier/prettier": ["error", { semi: false, singleQuote: false }],
+      "react/prop-types": "off",
     },
   },
   prettierConfig,
