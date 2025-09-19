@@ -16,7 +16,7 @@ const PageControl: React.FC<PageControlProps> = ({
   handleNext,
 }) => {
   return (
-    <Flex w={"100%"} justify="center" position="fixed" bottom="3">
+    <Flex w={"100%"} justify="center" position="fixed" bottom="3" left={0}>
       <Flex
         align="center"
         gap={4}
