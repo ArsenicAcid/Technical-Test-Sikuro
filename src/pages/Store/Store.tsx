@@ -3,6 +3,7 @@ import { useProducts } from "../../hooks/fetchProducts/fetchProducts"
 import { Grid } from "@chakra-ui/react"
 import { useState } from "react"
 import PageControl from "../../components/ui/page-control"
+import LoadingSpinner from "../../components/ui/spinner"
 
 const ITEMS_PER_PAGE = 8
 
@@ -10,7 +11,7 @@ const Store = () => {
   const { products, isFetching, error } = useProducts()
   const [page, setPage] = useState(0)
 
-  if (isFetching) return <h1>Loading...</h1>
+  if (isFetching) return <LoadingSpinner />
   if (error) return <div>Error: {error}</div>
 
   const start = page * ITEMS_PER_PAGE
