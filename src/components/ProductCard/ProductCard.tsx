@@ -1,8 +1,10 @@
 import type { Product } from "../../assets/types/Product"
 import { Image, Text, Flex, Button } from "@chakra-ui/react"
 import { formatCurrency } from "../../utilities/formatCurrency/formatCurrency.ts"
+import { useShoppingCart } from "../../context/ShoppingCartContext.tsx"
 
 const ProductCard = (product: Product) => {
+  const { increaseCartQuantity } = useShoppingCart()
   return (
     <Flex key={product.id} gap={4} p={4} shadow={"sm"} direction={"column"}>
       <Image
@@ -29,7 +31,13 @@ const ProductCard = (product: Product) => {
         </Flex>
         <Flex direction={"row"} justify={"space-between"} alignItems={"center"}>
           <Text>{formatCurrency(product.price)}</Text>
-          <Button variant={"outline"} color={"blue.500"} size={"lg"}>
+          <Button
+            disabled={product.stock === 0}
+            variant={"outline"}
+            color={"blue.500"}
+            size={"lg"}
+            onClick={() => increaseCartQuantity(product.id)}
+          >
             Add to Cart
           </Button>
         </Flex>

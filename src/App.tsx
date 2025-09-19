@@ -4,10 +4,11 @@ import Header from "./components/Header/Header"
 import Home from "./pages/Home/Home"
 import Store from "./pages/Store/Store"
 import Cart from "./pages/Cart/Cart"
+import { ShoppingCartProvider } from "./context/ShoppingCartContext"
 
 function App() {
   return (
-    <>
+    <ShoppingCartProvider>
       <Header />
       <Flex mb="10" maxW={"1600px"} justify={"center"} mx={"auto"} px={8}>
         <Routes>
@@ -16,7 +17,7 @@ function App() {
           <Route path="/cart" element={<Cart />} />
         </Routes>
       </Flex>
-    </>
+    </ShoppingCartProvider>
   )
 }
 export default App

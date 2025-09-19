@@ -4,8 +4,10 @@ import {
   ShoppingCartIconBlack,
   ShoppingCartIconWhite,
 } from "../../assets/styles/icons"
+import { useShoppingCart } from "../../context/ShoppingCartContext"
 
 const Header = () => {
+  const { cartQuantity } = useShoppingCart()
   return (
     <Flex
       px="4"
@@ -47,6 +49,7 @@ const Header = () => {
           <Flex
             position={"absolute"}
             bg={"red.500"}
+            hidden={cartQuantity === 0}
             w={"1rem"}
             h={"1rem"}
             borderRadius={"full"}
@@ -58,7 +61,7 @@ const Header = () => {
             fontSize={"xs"}
             color={"white"}
           >
-            1
+            {cartQuantity}
           </Flex>
         </Button>
       </Flex>
