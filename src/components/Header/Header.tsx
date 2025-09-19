@@ -13,6 +13,9 @@ const Header = () => {
       bg={useColorModeValue("gray.100", "gray.700")}
       justifyContent={"space-between"}
       shadow={"sm"}
+      position={"sticky"}
+      top="0"
+      zIndex={"sticky"}
     >
       <Stack
         gap="4"
@@ -54,7 +57,9 @@ const Header = () => {
             placeItems={"center"}
             fontSize={"xs"}
             color={"white"}
-          >1</Flex>
+          >
+            1
+          </Flex>
         </Button>
       </Flex>
     </Flex>
