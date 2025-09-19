@@ -16,11 +16,11 @@ const PageControl: React.FC<PageControlProps> = ({
   handleNext,
 }) => {
   return (
-    <Flex w={"100%"} justify="center" position="fixed" bottom="4">
+    <Flex w={"100%"} justify="center" position="fixed" bottom="3">
       <Flex
         align="center"
         gap={4}
-        p={4}
+        p={2}
         shadow={"sm"}
         background={useColorModeValue(
           "rgba(237, 242, 247, 0.2)",

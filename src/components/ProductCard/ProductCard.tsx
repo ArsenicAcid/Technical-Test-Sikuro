@@ -4,25 +4,27 @@ import { formatCurrency } from "../../utilities/formatCurrency/formatCurrency.ts
 
 const ProductCard = (product: Product) => {
   return (
-    <Flex
-      key={product.id}
-      p={4}
-      borderWidth="1px"
-      borderRadius="md"
-      direction={"column"}
-    >
+    <Flex key={product.id} gap={4} p={4} shadow={"sm"} direction={"column"}>
       <Image
         src={product.thumbnail}
         alt={product.title}
-        maxH={"200px"}
         objectFit={"cover"}
-        maxW={"200px"}
+        w={"100%"}
+        borderBottom={"1px solid lightgray"}
       />
-      <Text as={"h2"} fontWeight={"bold"} fontSize={"xl"}>
-        {product.title}
-      </Text>
-      <Text>{product.description}</Text>
-      <Text>{formatCurrency(product.price)}</Text>
+      <Flex direction="column" minH={"160px"} justify={"space-between"} gap={2}>
+        <Flex direction={"column"}>
+          <Text as={"h2"} fontWeight={"bold"} fontSize={"xl"}>
+            {product.title}
+          </Text>
+          <Text fontSize={"sm"} lineClamp={4}>
+            {product.description}
+          </Text>
+        </Flex>
+        <Flex>
+          <Text>{formatCurrency(product.price)}</Text>
+        </Flex>
+      </Flex>
     </Flex>
   )
 }
