@@ -4,7 +4,9 @@ import { formatCurrency } from "../../utilities/formatCurrency/formatCurrency.ts
 import { useShoppingCart } from "../../context/ShoppingCartContext.tsx"
 
 const ProductCard = (product: Product) => {
-  const { increaseCartQuantity } = useShoppingCart()
+  const { increaseCartQuantity, decreaseCartQuantity, getItemQuantity } =
+    useShoppingCart()
+  const productQuantity = getItemQuantity(product.id)
   return (
     <Flex key={product.id} gap={4} p={4} shadow={"sm"} direction={"column"}>
       <Image
@@ -31,15 +33,39 @@ const ProductCard = (product: Product) => {
         </Flex>
         <Flex direction={"row"} justify={"space-between"} alignItems={"center"}>
           <Text>{formatCurrency(product.price)}</Text>
-          <Button
-            disabled={product.stock === 0}
-            variant={"outline"}
-            color={"blue.500"}
-            size={"lg"}
-            onClick={() => increaseCartQuantity(product.id)}
-          >
-            Add to Cart
-          </Button>
+          {productQuantity === 0 ? (
+            <Button
+              disabled={product.stock === 0}
+              variant={"outline"}
+              color={"blue.500"}
+              size={"lg"}
+              onClick={() => increaseCartQuantity(product.id)}
+            >
+              Add to Cart
+            </Button>
+          ) : (
+            <Flex direction={"row"} gap={2} alignItems={"center"}>
+              <Button
+                variant={"outline"}
+                color={"blue.500"}
+                size={"lg"}
+                onClick={() => decreaseCartQuantity(product.id)}
+              >
+                -
+              </Button>
+              <Flex minW={"20px"} justifyContent={"center"}>
+                {productQuantity}
+              </Flex>
+              <Button
+                variant={"outline"}
+                color={"blue.500"}
+                size={"lg"}
+                onClick={() => increaseCartQuantity(product.id)}
+              >
+                +
+              </Button>
+            </Flex>
+          )}
         </Flex>
       </Flex>
     </Flex>
