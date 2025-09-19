@@ -1,6 +1,7 @@
 "use client"
 
 import { Flex, Portal, Select, createListCollection } from "@chakra-ui/react"
+import labels from "../../assets/labels"
 
 type ProductSearchProps = {
   searchQuery: string
@@ -40,7 +41,7 @@ const ProductSearch = ({
         onValueChange={(e) => setSelectedCategory(e.value[0])}
       >
         <Select.HiddenSelect />
-        <Select.Label>Filter by Category</Select.Label>
+        <Select.Label>{labels.FILTERBYCATEGORY}</Select.Label>
         <Select.Control>
           <Select.Trigger>
             <Select.ValueText placeholder="Select category" />
@@ -69,7 +70,7 @@ const ProductSearch = ({
       </Select.Root>
       <input
         type="text"
-        placeholder="Search products..."
+        placeholder={labels.SEARCHPRODUCTSPLACEHOLDER}
         value={searchQuery}
         onChange={(e) => setSearchQuery(e.target.value)}
         style={{

@@ -5,6 +5,7 @@ import {
   ShoppingCartIconWhite,
 } from "../../assets/styles/icons"
 import { useShoppingCart } from "../../context/ShoppingCartContext"
+import labels from "../../assets/labels"
 
 const Header = () => {
   const { cartQuantity } = useShoppingCart()
@@ -34,10 +35,10 @@ const Header = () => {
           borderRight={"1px solid lightgray"}
           pr="4"
         >
-          Rushop
+          {labels.STORENAME}
         </Link>
-        <Link href="/">Home</Link>
-        <Link href="/store">Store</Link>
+        <Link href="/">{labels.HOME}</Link>
+        <Link href="/store">{labels.STORE}</Link>
       </Stack>
       <Flex gap="2" alignItems={"center"}>
         <ColorModeButton variant={"ghost"} />

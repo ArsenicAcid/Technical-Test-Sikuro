@@ -1,6 +1,7 @@
 import { Flex, Button } from "@chakra-ui/react"
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa"
 import { useColorModeValue } from "./color-mode"
+import labels from "../../assets/labels"
 
 type PageControlProps = {
   page: number
@@ -37,7 +38,7 @@ const PageControl: React.FC<PageControlProps> = ({
           <FaArrowLeft />
         </Button>
         <span>
-          Page {page + 1} of {totalPages}
+          {labels.PAGE} {page + 1} {labels.OF} {totalPages}
         </span>
         <Button
           aria-label="Next page"
