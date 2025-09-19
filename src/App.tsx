@@ -10,7 +10,7 @@ function App() {
   return (
     <ShoppingCartProvider>
       <Header />
-      <Flex mb="10" maxW={"1600px"} justify={"center"} mx={"auto"} px={8}>
+      <Flex mb="20" maxW={"1600px"} justify={"center"} mx={"auto"} px={8}>
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/store" element={<Store />} />
