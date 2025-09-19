@@ -1,9 +1,8 @@
-import ProductCard from "../../components/ProductCard/ProductCard"
 import { useProducts } from "../../hooks/fetchProducts/fetchProducts"
-import { Grid } from "@chakra-ui/react"
 import { useState } from "react"
 import PageControl from "../../components/ui/page-control"
 import LoadingSpinner from "../../components/ui/spinner"
+import ProductGrid from "../../components/ProductGrid/ProductGrid"
 
 const ITEMS_PER_PAGE = 8
 
@@ -25,21 +24,7 @@ const Store = () => {
 
   return (
     <>
-      <Grid
-        templateColumns={{
-          xl: "repeat(4, 1fr)",
-          lg: "repeat(3, 1fr)",
-          md: "repeat(2, 1fr)",
-          sm: "repeat(1, 1fr)",
-        }}
-        gap={6}
-        py={8}
-      >
-        {visibleProducts.map((product) => (
-          <ProductCard key={product.id} {...product} />
-        ))}
-      </Grid>
-
+      <ProductGrid products={visibleProducts} />
       <PageControl {...{ page, totalPages, handlePrev, handleNext }} />
     </>
   )
