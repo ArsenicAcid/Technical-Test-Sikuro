@@ -7,6 +7,7 @@ const eng = {
   PAGE: "Page",
   OF: "of",
   FILTERBYCATEGORY: "Filter by category",
+  LOADING: "Loading...",
 }
 
 export default eng

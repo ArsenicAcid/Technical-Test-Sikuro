@@ -1,4 +1,5 @@
 import { Flex, Spinner, Text } from "@chakra-ui/react"
+import labels from "../../assets/labels"
 
 const LoadingSpinner = () => {
   return (
@@ -12,7 +13,7 @@ const LoadingSpinner = () => {
     >
       <Spinner color="blue.500" size="xl" />
       <Text fontSize="lg" fontWeight="medium">
-        Loading...
+        {labels.LOADING}
       </Text>
     </Flex>
   )
