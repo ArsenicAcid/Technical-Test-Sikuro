@@ -26,9 +26,11 @@ const Store = () => {
 
   const filteredProducts = useMemo(() => {
     return products.filter((product) => {
-      const matchesSearch = product.title
-        .toLowerCase()
-        .includes(searchQuery.toLowerCase())
+      const query = searchQuery.toLowerCase()
+
+      const matchesSearch =
+        product.title.toLowerCase().includes(query) ||
+        product.description.toLowerCase().includes(query)
 
       const matchesCategory =
         selectedCategory === "All" || product.category === selectedCategory
