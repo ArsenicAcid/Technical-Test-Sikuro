@@ -32,6 +32,7 @@ const PageControl: React.FC<PageControlProps> = ({
           aria-label="Previous page"
           onClick={handlePrev}
           disabled={page === 0}
+          variant={"ghost"}
         >
           <FaArrowLeft />
         </Button>
@@ -42,6 +43,7 @@ const PageControl: React.FC<PageControlProps> = ({
           aria-label="Next page"
           onClick={handleNext}
           disabled={page === totalPages - 1}
+          variant={"ghost"}
         >
           <FaArrowRight />
         </Button>
