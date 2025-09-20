@@ -26,6 +26,8 @@ const CartItemComponent = ({
       key={id}
       align="center"
       justify="space-between"
+      direction={{ base: "column", md: "row" }}
+      borderBottom={{ base: "1px solid lightgray", md: "none" }}
       p={2}
       gap={3}
       _hover={{ bg: "gray.100", _dark: { bg: "gray.700" } }}
@@ -51,7 +53,7 @@ const CartItemComponent = ({
         </Text>
       </Box>
 
-      <Flex align="center" gap={2}>
+      <Flex align="center" gap={2} direction={{ base: "column", md: "row" }}>
         <Text fontWeight="bold" fontSize={isMiniCart ? "sm" : "lg"}>
           x{quantity}
         </Text>
