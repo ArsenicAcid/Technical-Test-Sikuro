@@ -53,6 +53,8 @@ const Header = () => {
           role="group"
           onMouseEnter={() => setIsHovered(true)}
           data-testid="cart-button"
+          href="/cart"
+          as="a"
         >
           {useColorModeValue(
             <ShoppingCartIconBlack />,
