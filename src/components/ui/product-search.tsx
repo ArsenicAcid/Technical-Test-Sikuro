@@ -1,6 +1,12 @@
 "use client"
 
-import { Flex, Portal, Select, createListCollection } from "@chakra-ui/react"
+import {
+  Box,
+  Flex,
+  Portal,
+  Select,
+  createListCollection,
+} from "@chakra-ui/react"
 import labels from "../../assets/labels"
 
 type ProductSearchProps = {
@@ -36,7 +42,7 @@ const ProductSearch = ({
     >
       <Select.Root
         collection={categoryCollection}
-        width="30%"
+        width={{ base: "100%", md: "30%" }}
         value={[selectedCategory]}
         onValueChange={(e) => setSelectedCategory(e.value[0])}
       >
@@ -68,19 +74,21 @@ const ProductSearch = ({
           </Select.Positioner>
         </Portal>
       </Select.Root>
-      <input
-        type="text"
-        placeholder={labels.SEARCHPRODUCTSPLACEHOLDER}
-        value={searchQuery}
-        onChange={(e) => setSearchQuery(e.target.value)}
-        style={{
-          border: "1px solid lightgray",
-          borderRadius: "4px",
-          padding: "6px",
-          width: "70%",
-          height: "40px",
-        }}
-      />
+      <Box width={{ base: "100%", md: "70%" }}>
+        <input
+          type="text"
+          placeholder={labels.SEARCHPRODUCTSPLACEHOLDER}
+          value={searchQuery}
+          onChange={(e) => setSearchQuery(e.target.value)}
+          style={{
+            border: "1px solid lightgray",
+            borderRadius: "4px",
+            padding: "6px",
+            height: "40px",
+            width: "100%",
+          }}
+        />
+      </Box>
     </Flex>
   )
 }
