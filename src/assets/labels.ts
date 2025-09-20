@@ -13,6 +13,8 @@ const eng = {
   CARTLOADING: "Loading Cart...",
   YOURCART: "Your Cart",
   CART_TOTAL: "Cart Total:",
+  GO_TO_CHECKOUT: "Go to Checkout",
+  REMOVE_FROM_CART: "Remove from Cart",
 }
 
 export default eng
