@@ -8,6 +8,8 @@ const eng = {
   OF: "of",
   FILTERBYCATEGORY: "Filter by category",
   LOADING: "Loading...",
+  CART_EMPTY: "Your cart is empty :(",
+  VIEW_CART: "View Cart",
 }
 
 export default eng
