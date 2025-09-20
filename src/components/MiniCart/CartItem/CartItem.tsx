@@ -48,6 +48,9 @@ const CartItemComponent = ({
         <Text fontWeight="bold" fontSize="sm">
           x{quantity}
         </Text>
+        <Text fontSize="sm">
+          {formatCurrency(quantity * filteredItem.price)}
+        </Text>
         <Button
           size="xs"
           colorScheme="red"

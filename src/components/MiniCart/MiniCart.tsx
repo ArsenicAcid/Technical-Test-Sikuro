@@ -1,10 +1,11 @@
-import { Box, Flex, Text, Button } from "@chakra-ui/react"
+import { Flex, Text, Button } from "@chakra-ui/react"
 import { Divider } from "@chakra-ui/layout"
 import { useShoppingCart } from "../../context/ShoppingCartContext"
 import labels from "../../assets/labels"
 import { useProducts } from "../../hooks/fetchProducts/fetchProducts"
 import CartItemComponent from "./CartItem/CartItem"
 import type { CartItem } from "../../assets/types/CartItem"
+import { formatCurrency } from "../../utilities/formatCurrency/formatCurrency"
 
 type MiniCartProps = {
   setIsHovered: (isHovered: boolean) => void
@@ -30,6 +31,8 @@ const MiniCart = ({ setIsHovered, isHovered }: MiniCartProps) => {
       rounded="md"
       zIndex="popover"
       _dark={{ bg: "gray.800" }}
+      maxH="80vh" // maximum height relative to viewport
+      overflowY="auto" // enables scrolling when content exceeds max height
     >
       <Flex
         direction={"row"}
@@ -64,11 +67,29 @@ const MiniCart = ({ setIsHovered, isHovered }: MiniCartProps) => {
             <CartItemComponent key={item.id} {...item} products={products} />
           ))}
           <Divider />
-          <Box p={3}>
+          <Flex
+            direction="column"
+            p={3}
+            gap={2}
+            borderTop={"1px solid lightgray"}
+          >
+            <Flex direction="row" justify="space-between">
+              <Text fontWeight="bold" fontSize="md">
+                {labels.CART_TOTAL}
+              </Text>
+              <Text fontSize="md">
+                {formatCurrency(
+                  cartItems.reduce((total, cartItem) => {
+                    const item = products.find((i) => i.id === cartItem.id)
+                    return total + (item?.price || 0) * cartItem.quantity
+                  }, 0),
+                )}
+              </Text>
+            </Flex>
             <Button w="100%" colorScheme="blue" as="a" href="/cart">
               {labels.VIEW_CART}
             </Button>
-          </Box>
+          </Flex>
         </>
       )}
     </Flex>

@@ -12,6 +12,7 @@ const eng = {
   VIEW_CART: "View Cart",
   CARTLOADING: "Loading Cart...",
   YOURCART: "Your Cart",
+  CART_TOTAL: "Cart Total:",
 }
 
 export default eng
