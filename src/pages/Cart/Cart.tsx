@@ -58,16 +58,19 @@ const Cart = () => {
                 )}
               </Text>
             </Flex>
-            <Button
-              w="100%"
-              as="a"
-              variant={"solid"}
-              colorPalette="green"
-              fontSize={"lg"}
-            >
-              {labels.GO_TO_CHECKOUT}
-            </Button>
           </Flex>
+          <Button
+            w="100%"
+            as="a"
+            variant={"solid"}
+            colorPalette="green"
+            fontSize={"xl"}
+            size={"lg"}
+            position={"sticky"}
+            bottom="0"
+          >
+            {labels.GO_TO_CHECKOUT}
+          </Button>
         </>
       )}
     </Flex>
