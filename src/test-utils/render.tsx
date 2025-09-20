@@ -5,9 +5,9 @@ import { render as rtlRender } from "@testing-library/react"
 export function render(ui: React.ReactNode) {
   return rtlRender(<>{ui}</>, {
     wrapper: (props: React.PropsWithChildren) => (
-      <ShoppingCartProvider>
-        <Provider>{props.children}</Provider>
-      </ShoppingCartProvider>
+      <Provider>
+        <ShoppingCartProvider>{props.children}</ShoppingCartProvider>
+      </Provider>
     ),
   })
 }
