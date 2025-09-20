@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import { screen, fireEvent } from "@testing-library/react"
 import { render } from "../../test-utils/render"
 import MiniCart from "./MiniCart"
