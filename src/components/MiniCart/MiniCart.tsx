@@ -64,7 +64,12 @@ const MiniCart = ({ setIsHovered, isHovered }: MiniCartProps) => {
       ) : (
         <>
           {cartItems.map((item: CartItem) => (
-            <CartItemComponent key={item.id} {...item} products={products} />
+            <CartItemComponent
+              key={item.id}
+              {...item}
+              products={products}
+              isMiniCart={true}
+            />
           ))}
           <Divider />
           <Flex
