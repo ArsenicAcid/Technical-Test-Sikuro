@@ -23,7 +23,14 @@ describe("CartItemComponent", () => {
   })
 
   it("renders product title, price, and quantity", () => {
-    render(<CartItemComponent id={1} quantity={2} products={[productMock]} />)
+    render(
+      <CartItemComponent
+        id={1}
+        quantity={2}
+        products={[productMock]}
+        isMiniCart={false}
+      />,
+    )
 
     expect(screen.getByText(productMock.title)).toBeInTheDocument()
     expect(screen.getByText(/9,99\s?€/)).toBeInTheDocument()
@@ -35,7 +42,14 @@ describe("CartItemComponent", () => {
   })
 
   it("calls removeFromCart when remove button is clicked", () => {
-    render(<CartItemComponent id={1} quantity={1} products={[productMock]} />)
+    render(
+      <CartItemComponent
+        id={1}
+        quantity={1}
+        products={[productMock]}
+        isMiniCart={true}
+      />,
+    )
     const removeButton = screen.getByRole("button", { name: "✕" })
 
     fireEvent.click(removeButton)
@@ -43,7 +57,14 @@ describe("CartItemComponent", () => {
   })
 
   it("renders nothing if product is not found", () => {
-    render(<CartItemComponent id={999} quantity={1} products={[productMock]} />)
+    render(
+      <CartItemComponent
+        id={999}
+        quantity={1}
+        products={[productMock]}
+        isMiniCart={false}
+      />,
+    )
 
     expect(screen.queryByText(productMock.title)).not.toBeInTheDocument()
 

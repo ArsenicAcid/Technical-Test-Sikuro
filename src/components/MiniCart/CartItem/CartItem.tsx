@@ -3,15 +3,18 @@ import { formatCurrency } from "../../../utilities/formatCurrency/formatCurrency
 import { useShoppingCart } from "../../../context/ShoppingCartContext"
 import type { CartItem } from "../../../assets/types/CartItem"
 import type { Product } from "../../../assets/types/Product"
+import labels from "../../../assets/labels"
 
 type CartItemComponentProps = CartItem & {
   products: Product[]
+  isMiniCart: boolean
 }
 
 const CartItemComponent = ({
   id,
   quantity,
   products,
+  isMiniCart,
 }: CartItemComponentProps) => {
   const { removeFromCart } = useShoppingCart()
   const filteredItem = products.find((product) => product.id === id)
@@ -30,34 +33,38 @@ const CartItemComponent = ({
       <Image
         src={filteredItem.thumbnail}
         alt={filteredItem.title}
-        boxSize="3rem"
+        boxSize={isMiniCart ? "3rem" : "8rem"}
         objectFit="cover"
         rounded="md"
       />
 
       <Box flex="1" minW="0">
-        <Text fontWeight="medium" fontSize="sm" truncate>
+        <Text fontWeight="medium" fontSize={isMiniCart ? "sm" : "lg"} truncate>
           {filteredItem.title}
         </Text>
-        <Text fontSize="xs" color="gray.500" _dark={{ color: "gray.400" }}>
+        <Text
+          fontSize={isMiniCart ? "xs" : "md"}
+          color="gray.500"
+          _dark={{ color: "gray.400" }}
+        >
           {formatCurrency(filteredItem.price)}
         </Text>
       </Box>
 
       <Flex align="center" gap={2}>
-        <Text fontWeight="bold" fontSize="sm">
+        <Text fontWeight="bold" fontSize={isMiniCart ? "sm" : "lg"}>
           x{quantity}
         </Text>
-        <Text fontSize="sm">
+        <Text fontSize={isMiniCart ? "sm" : "lg"}>
           {formatCurrency(quantity * filteredItem.price)}
         </Text>
         <Button
-          size="xs"
-          colorScheme="red"
-          variant="outline"
+          size={isMiniCart ? "xs" : "sm"}
+          colorPalette="red"
+          variant={isMiniCart ? "outline" : "solid"}
           onClick={() => removeFromCart(id)}
         >
-          ✕
+          {isMiniCart ? "✕" : labels.REMOVE_FROM_CART}
         </Button>
       </Flex>
     </Flex>
