@@ -31,8 +31,8 @@ const MiniCart = ({ setIsHovered, isHovered }: MiniCartProps) => {
       rounded="md"
       zIndex="popover"
       _dark={{ bg: "gray.800" }}
-      maxH="80vh" // maximum height relative to viewport
-      overflowY="auto" // enables scrolling when content exceeds max height
+      maxH="80vh"
+      overflowY="auto"
     >
       <Flex
         direction={"row"}
