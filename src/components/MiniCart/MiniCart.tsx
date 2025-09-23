@@ -1,4 +1,4 @@
-import { Flex, Text, Button } from "@chakra-ui/react"
+import { Flex, Text, Button, Link } from "@chakra-ui/react"
 import { Divider } from "@chakra-ui/layout"
 import { useShoppingCart } from "../../context/ShoppingCartContext"
 import labels from "../../assets/labels"
@@ -91,8 +91,10 @@ const MiniCart = ({ setIsHovered, isHovered }: MiniCartProps) => {
                 )}
               </Text>
             </Flex>
-            <Button w="100%" colorPalette="blue" as="a" href="/cart">
-              {labels.VIEW_CART}
+            <Button w="100%" colorPalette="blue" as="a">
+              <Link href="/cart" color="white">
+                {labels.VIEW_CART}
+              </Link>
             </Button>
           </Flex>
         </>

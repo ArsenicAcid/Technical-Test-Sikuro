@@ -1,4 +1,4 @@
-import { Flex, Text, Button } from "@chakra-ui/react"
+import { Flex, Text, Button, Link } from "@chakra-ui/react"
 import type { Product } from "../../assets/types/Product"
 import ProductCard from "../ProductCard/ProductCard"
 import { useColorModeValue } from "../ui/color-mode"
@@ -47,14 +47,10 @@ const DiscoverMore = ({ products }: DiscoverMoreProps) => {
           {labels.DISCOVERMORETEXT}
         </Text>
 
-        <Button
-          as="a"
-          href="/store"
-          colorPalette="blue"
-          mt={4}
-          alignSelf="flex-start"
-        >
-          {labels.DISCOVERMORE}
+        <Button as="a" colorPalette="blue" mt={4} alignSelf="flex-start">
+          <Link color="white" href="/store">
+            {labels.DISCOVERMORE}
+          </Link>
         </Button>
       </Flex>
     </Flex>
