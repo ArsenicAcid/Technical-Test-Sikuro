@@ -10,7 +10,7 @@ function NotFound() {
       <Text fontSize="lg" color="gray.600" mb={6}>
         {labels.PAGENOTFOUNDOHNO}
       </Text>
-      <Link href="/store">
+      <Link href="/">
         <Button colorPalette="blue">{labels.GOHOME}</Button>
       </Link>
     </Box>
