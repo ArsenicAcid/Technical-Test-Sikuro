@@ -22,6 +22,8 @@ const eng = {
   EXMARK: "!",
   HERODESCRIPTION:
     "Discover amazing products from an endopoint provided by Sikuro.",
+  DISCOVERMORETEXT: "Discover amazing products and deals",
+  DISCOVERMORE: "Discover More",
 }
 
 export default eng
