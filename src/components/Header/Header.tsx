@@ -52,33 +52,41 @@ const Header = () => {
           position="relative"
           role="group"
           onMouseEnter={() => setIsHovered(true)}
+          onTouchStart={() => setIsHovered(true)}
           data-testid="cart-button"
-          href="/cart"
-          as="a"
         >
-          {useColorModeValue(
-            <ShoppingCartIconBlack />,
-            <ShoppingCartIconWhite />,
-          )}
-
-          <Flex
-            position="absolute"
-            bg="red.500"
-            hidden={cartQuantity === 0}
-            w="1rem"
-            h="1rem"
-            borderRadius="full"
-            bottom="0"
-            left="0"
-            translate="20% -20%"
-            justifyContent="center"
-            placeItems="center"
-            fontSize="xs"
-            color="white"
-            data-testid="cart-quantity-badge"
+          <Link
+            href="/cart"
+            onClick={(e) => {
+              if (!window.matchMedia("(hover: hover)").matches) {
+                e.preventDefault()
+              }
+            }}
           >
-            {cartQuantity}
-          </Flex>
+            {useColorModeValue(
+              <ShoppingCartIconBlack />,
+              <ShoppingCartIconWhite />,
+            )}
+
+            <Flex
+              position="absolute"
+              bg="red.500"
+              hidden={cartQuantity === 0}
+              w="1rem"
+              h="1rem"
+              borderRadius="full"
+              bottom="0"
+              left="0"
+              translate="20% -20%"
+              justifyContent="center"
+              placeItems="center"
+              fontSize="xs"
+              color="white"
+              data-testid="cart-quantity-badge"
+            >
+              {cartQuantity}
+            </Flex>
+          </Link>
         </Button>
         <MiniCart setIsHovered={setIsHovered} isHovered={isHovered} />
       </Flex>
