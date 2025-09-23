@@ -52,7 +52,7 @@ const ProductCard = (product: Product) => {
                 size={"lg"}
                 onClick={() => decreaseCartQuantity(product.id)}
               >
-                -
+                {labels.MINUS}
               </Button>
               <Flex minW={"20px"} justifyContent={"center"}>
                 {productQuantity}
@@ -63,7 +63,7 @@ const ProductCard = (product: Product) => {
                 size={"lg"}
                 onClick={() => increaseCartQuantity(product.id)}
               >
-                +
+                {labels.PLUS}
               </Button>
             </Flex>
           )}

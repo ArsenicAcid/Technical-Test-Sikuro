@@ -15,6 +15,9 @@ const eng = {
   CART_TOTAL: "Cart Total:",
   GO_TO_CHECKOUT: "Go to Checkout",
   REMOVE_FROM_CART: "Remove from Cart",
+  MINUS: "-",
+  PLUS: "+",
+  X: "x",
 }
 
 export default eng
