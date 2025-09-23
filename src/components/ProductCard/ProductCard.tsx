@@ -20,6 +20,7 @@ const ProductCard = (product: Product) => {
       <Link
         href={`/store/${product.id}`}
         w={"100%"}
+        h={"100%"}
         borderBottom={"1px solid lightgray"}
         mt={"auto"}
       >
