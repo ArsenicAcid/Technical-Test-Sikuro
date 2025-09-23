@@ -1,5 +1,5 @@
 import type { Product } from "../../assets/types/Product"
-import { Image, Text, Flex, Button } from "@chakra-ui/react"
+import { Image, Text, Flex, Button, Link } from "@chakra-ui/react"
 import { formatCurrency } from "../../utilities/formatCurrency/formatCurrency.ts"
 import { useShoppingCart } from "../../context/ShoppingCartContext.tsx"
 import labels from "../../assets/labels.ts"
@@ -17,13 +17,18 @@ const ProductCard = (product: Product) => {
       direction={"column"}
       minH={"490px"}
     >
-      <Image
-        src={product.thumbnail}
-        alt={product.title}
-        objectFit={"cover"}
+      <Link
+        href={`/store/${product.id}`}
         w={"100%"}
         borderBottom={"1px solid lightgray"}
-      />
+        mt={"auto"}
+      >
+        <Image
+          src={product.thumbnail}
+          alt={product.title}
+          objectFit={"cover"}
+        />
+      </Link>
       <Flex
         direction="column"
         minH={"160px"}
