@@ -91,7 +91,7 @@ const MiniCart = ({ setIsHovered, isHovered }: MiniCartProps) => {
                 )}
               </Text>
             </Flex>
-            <Button w="100%" colorScheme="blue" as="a" href="/cart">
+            <Button w="100%" colorPalette="blue" as="a" href="/cart">
               {labels.VIEW_CART}
             </Button>
           </Flex>
