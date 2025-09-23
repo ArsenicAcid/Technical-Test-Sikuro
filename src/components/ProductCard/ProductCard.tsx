@@ -32,7 +32,12 @@ const ProductCard = (product: Product) => {
             {product.description}
           </Text>
         </Flex>
-        <Flex direction={"row"} justify={"space-between"} alignItems={"center"}>
+        <Flex
+          direction={"row"}
+          justify={"space-between"}
+          alignItems={"center"}
+          gap={4}
+        >
           <Text>{formatCurrency(product.price)}</Text>
           {productQuantity === 0 ? (
             <Button
