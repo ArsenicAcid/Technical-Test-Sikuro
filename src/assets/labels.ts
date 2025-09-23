@@ -18,6 +18,10 @@ const eng = {
   MINUS: "-",
   PLUS: "+",
   X: "x",
+  WELCOMETO: "Welcome to ",
+  EXMARK: "!",
+  HERODESCRIPTION:
+    "Discover amazing products from an endopoint provided by Sikuro.",
 }
 
 export default eng
