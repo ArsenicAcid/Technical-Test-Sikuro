@@ -16,7 +16,8 @@ const CartItemComponent = ({
   products,
   isMiniCart,
 }: CartItemComponentProps) => {
-  const { removeFromCart } = useShoppingCart()
+  const { removeFromCart, increaseCartQuantity, decreaseCartQuantity } =
+    useShoppingCart()
   const filteredItem = products.find((product) => product.id === id)
   if (!filteredItem) {
     return null
@@ -53,9 +54,34 @@ const CartItemComponent = ({
         </Text>
       </Box>
 
+      {!isMiniCart && (
+        <Flex direction={"row"} gap={2} alignItems={"center"} flex="1">
+          <Button
+            variant={"subtle"}
+            color={"blue.500"}
+            size={"sm"}
+            onClick={() => decreaseCartQuantity(filteredItem.id)}
+          >
+            {labels.MINUS}
+          </Button>
+          <Flex minW={"20px"} justifyContent={"center"}>
+            {quantity}
+          </Flex>
+          <Button
+            variant={"subtle"}
+            color={"blue.500"}
+            size={"sm"}
+            onClick={() => increaseCartQuantity(filteredItem.id)}
+          >
+            {labels.PLUS}
+          </Button>
+        </Flex>
+      )}
+
       <Flex align="center" gap={2} direction={{ base: "column", md: "row" }}>
         <Text fontWeight="bold" fontSize={isMiniCart ? "sm" : "lg"}>
-          x{quantity}
+          {labels.X}
+          {quantity}
         </Text>
         <Text fontSize={isMiniCart ? "sm" : "lg"}>
           {formatCurrency(quantity * filteredItem.price)}
