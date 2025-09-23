@@ -5,6 +5,7 @@ import Home from "./pages/Home/Home"
 import Store from "./pages/Store/Store"
 import Cart from "./pages/Cart/Cart"
 import ProductPage from "./components/ProductPage/ProductPage"
+import NotFound from "./components/NotFound/NotFound"
 import { ShoppingCartProvider } from "./context/ShoppingCartContext"
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
           <Route path="/store" element={<Store />} />
           <Route path="/cart" element={<Cart />} />
           <Route path="/store/:productId" element={<ProductPage />} />
+          <Route path="*" element={<NotFound />} />
         </Routes>
       </Flex>
     </ShoppingCartProvider>
