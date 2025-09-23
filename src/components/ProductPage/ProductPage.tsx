@@ -25,7 +25,7 @@ function ProductPage() {
   if (isFetching) {
     return (
       <Flex justify="center" align="center" minH="50vh">
-        <LoadingSpinner size="xl" />
+        <LoadingSpinner />
       </Flex>
     )
   }
@@ -122,7 +122,7 @@ function ProductPage() {
 
           <Divider mb={4} />
 
-          <Stack spacing={3}>
+          <Stack gap={3}>
             <Text>
               <strong>{labels.RATING}</strong> {product.rating} {labels.STAR}
             </Text>
@@ -170,7 +170,7 @@ function ProductPage() {
             <Heading size="md" mb={3}>
               {labels.REVIEWS}
             </Heading>
-            <Stack spacing={4}>
+            <Stack gap={4}>
               {product.reviews.map((review, idx) => (
                 <Box
                   key={idx}
