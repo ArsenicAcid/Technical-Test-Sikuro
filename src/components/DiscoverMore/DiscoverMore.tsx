@@ -64,8 +64,14 @@ const DiscoverMore = ({ products }: DiscoverMoreProps) => {
             ))}
           </Flex>
         )}
-        <Link color="white" href="/store" mt={4} w={"fit-content"}>
-          <Button as="a" colorPalette="blue" alignSelf="flex-start">
+        <Link color="white" href="/store" mt={4}>
+          <Button
+            as="a"
+            colorPalette="blue"
+            alignSelf="flex-start"
+            w="100%"
+            size={"2xl"}
+          >
             {labels.DISCOVERMORE}
           </Button>
         </Link>
