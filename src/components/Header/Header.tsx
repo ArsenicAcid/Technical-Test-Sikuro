@@ -47,6 +47,7 @@ const Header = () => {
         <ColorModeButton variant={"ghost"} />
         <Link
           href="/cart"
+          h={"100%"}
           onClick={(e) => {
             if (!window.matchMedia("(hover: hover)").matches) {
               e.preventDefault()
