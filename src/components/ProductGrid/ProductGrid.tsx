@@ -1,5 +1,5 @@
 import { Grid } from "@chakra-ui/react"
-import ProductCard from "../../components/ProductCard/ProductCard"
+import ProductCard from "../ProductCard/ProductCard"
 import type { Product } from "../../assets/types/Product"
 
 type ProductGridProps = {
