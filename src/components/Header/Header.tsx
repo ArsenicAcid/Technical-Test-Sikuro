@@ -80,7 +80,7 @@ const Header = () => {
             {cartQuantity}
           </Flex>
         </Button>
-        {isHovered && <MiniCart setIsHovered={setIsHovered} isHovered />}
+        <MiniCart setIsHovered={setIsHovered} isHovered={isHovered} />
       </Flex>
     </Flex>
   )

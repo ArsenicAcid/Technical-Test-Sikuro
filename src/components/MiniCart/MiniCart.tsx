@@ -19,8 +19,8 @@ const MiniCart = ({ setIsHovered, isHovered }: MiniCartProps) => {
 
   return (
     <Flex
+      display={isHovered ? "flex" : "none"}
       direction="column"
-      hidden={!isHovered}
       position="absolute"
       top="100%"
       right="4"
