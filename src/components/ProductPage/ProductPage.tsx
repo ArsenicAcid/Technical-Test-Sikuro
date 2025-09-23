@@ -19,7 +19,8 @@ import LoadingSpinner from "../ui/spinner"
 function ProductPage() {
   const { productId } = useParams<{ productId: string }>()
   const { products, isFetching, error } = useProducts()
-  const { increaseCartQuantity, decreaseCartQuantity, getItemQuantity } = useShoppingCart()
+  const { increaseCartQuantity, decreaseCartQuantity, getItemQuantity } =
+    useShoppingCart()
 
   if (isFetching) {
     return (
@@ -38,7 +39,9 @@ function ProductPage() {
       <Flex direction={"column"} gap={4} mt={8} align={"center"}>
         <Text fontSize={"l"}>{labels.PRODUCTNOTFOUND}</Text>
         <Link href="/store" w={"fit-content"}>
-          <Button size={"lg"}>{labels.SHOPNOW}</Button>
+          <Button size={"lg"} colorPalette="blue">
+            {labels.SHOPNOW}
+          </Button>
         </Link>
       </Flex>
     )
