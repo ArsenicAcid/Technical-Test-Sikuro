@@ -59,11 +59,17 @@ const ProductCard = (product: Product) => {
               color={"blue.500"}
               size={"lg"}
               onClick={() => increaseCartQuantity(product.id)}
+              minW={"130px"}
             >
               {labels.ADDTOCART}
             </Button>
           ) : (
-            <Flex direction={"row"} gap={2} alignItems={"center"}>
+            <Flex
+              direction={"row"}
+              gap={1}
+              alignItems={"center"}
+              minW={"130px"}
+            >
               <Button
                 variant={"outline"}
                 color={"blue.500"}
