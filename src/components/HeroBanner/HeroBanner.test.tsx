@@ -9,9 +9,7 @@ vi.mock("../../components/ui/color-mode", async (importOriginal) => {
     await importOriginal<typeof import("../../components/ui/color-mode")>()
   return {
     ...actual,
-    useColorModeValue: vi
-      .fn()
-      .mockImplementation((light: string, _dark: string) => light),
+    useColorModeValue: vi.fn().mockImplementation((light: string) => light),
   }
 })
 
