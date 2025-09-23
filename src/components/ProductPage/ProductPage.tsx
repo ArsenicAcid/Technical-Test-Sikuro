@@ -15,6 +15,7 @@ import {
 import labels from "../../assets/labels"
 import { useShoppingCart } from "../../context/ShoppingCartContext"
 import LoadingSpinner from "../ui/spinner"
+import { formatCurrency } from "../../utilities/formatCurrency/formatCurrency"
 
 function ProductPage() {
   const { productId } = useParams<{ productId: string }>()
@@ -78,7 +79,7 @@ function ProductPage() {
             {product.brand} {labels.DIVIDERDOT} {product.category}
           </Text>
           <Text fontSize="2xl" fontWeight="bold" mb={4}>
-            ${product.price}{" "}
+            {formatCurrency(product.price)}{" "}
             <Badge colorScheme="green" ml={2}>
               {labels.MINUS}
               {product.discountPercentage}
