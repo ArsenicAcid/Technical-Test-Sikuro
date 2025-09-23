@@ -9,7 +9,14 @@ const ProductCard = (product: Product) => {
     useShoppingCart()
   const productQuantity = getItemQuantity(product.id)
   return (
-    <Flex key={product.id} gap={4} p={4} shadow={"sm"} direction={"column"}>
+    <Flex
+      key={product.id}
+      gap={4}
+      p={4}
+      shadow={"sm"}
+      direction={"column"}
+      minH={"490px"}
+    >
       <Image
         src={product.thumbnail}
         alt={product.title}

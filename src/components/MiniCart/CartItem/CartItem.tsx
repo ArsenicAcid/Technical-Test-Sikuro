@@ -4,6 +4,7 @@ import { useShoppingCart } from "../../../context/ShoppingCartContext"
 import type { CartItem } from "../../../assets/types/CartItem"
 import type { Product } from "../../../assets/types/Product"
 import labels from "../../../assets/labels"
+import { RxCross1 } from "react-icons/rx"
 
 type CartItemComponentProps = CartItem & {
   products: Product[]
@@ -27,7 +28,7 @@ const CartItemComponent = ({
       key={id}
       align="center"
       justify="space-between"
-      direction={{ base: "column", md: "row" }}
+      direction={!isMiniCart ? { base: "column", md: "row" } : "row"}
       borderBottom={{ base: "1px solid lightgray", md: "none" }}
       p={2}
       gap={3}
@@ -78,7 +79,11 @@ const CartItemComponent = ({
         </Flex>
       )}
 
-      <Flex align="center" gap={2} direction={{ base: "column", md: "row" }}>
+      <Flex
+        align="center"
+        gap={2}
+        direction={!isMiniCart ? { base: "column", md: "row" } : "row"}
+      >
         <Text fontWeight="bold" fontSize={isMiniCart ? "sm" : "lg"}>
           {labels.X}
           {quantity}
@@ -91,8 +96,9 @@ const CartItemComponent = ({
           colorPalette="red"
           variant={isMiniCart ? "outline" : "solid"}
           onClick={() => removeFromCart(id)}
+          data-testid="remove-from-cart"
         >
-          {isMiniCart ? "✕" : labels.REMOVE_FROM_CART}
+          {isMiniCart ? <RxCross1 /> : labels.REMOVE_FROM_CART}
         </Button>
       </Flex>
     </Flex>

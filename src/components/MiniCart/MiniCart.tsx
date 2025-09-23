@@ -6,6 +6,7 @@ import { useProducts } from "../../hooks/fetchProducts/fetchProducts"
 import CartItemComponent from "./CartItem/CartItem"
 import type { CartItem } from "../../assets/types/CartItem"
 import { formatCurrency } from "../../utilities/formatCurrency/formatCurrency"
+import { RxCross1 } from "react-icons/rx"
 
 type MiniCartProps = {
   setIsHovered: (isHovered: boolean) => void
@@ -48,8 +49,9 @@ const MiniCart = ({ setIsHovered, isHovered }: MiniCartProps) => {
           alignSelf="flex-end"
           width="fit-content"
           onClick={() => setIsHovered(false)}
+          data-testid="close-button"
         >
-          ✕
+          <RxCross1 />
         </Button>
       </Flex>
       {isFetching && (
@@ -91,11 +93,11 @@ const MiniCart = ({ setIsHovered, isHovered }: MiniCartProps) => {
                 )}
               </Text>
             </Flex>
-            <Button w="100%" colorPalette="blue" as="a">
-              <Link href="/cart" color="white">
+            <Link href="/cart" color="white">
+              <Button w="100%" colorPalette="blue" as="a">
                 {labels.VIEW_CART}
-              </Link>
-            </Button>
+              </Button>
+            </Link>
           </Flex>
         </>
       )}

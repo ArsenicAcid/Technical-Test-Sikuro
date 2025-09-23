@@ -10,7 +10,7 @@ const Home = () => {
   if (isFetching) return <LoadingSpinner />
   if (error) return <div>Error: {error}</div>
   return (
-    <Flex w={"100%"} direction={"column"} gap={16}>
+    <Flex w={"100%"} direction={"column"} gap={16} mb={8}>
       <HeroBanner />
       <DiscoverMore products={products.slice(0, 7)} />
     </Flex>

@@ -50,7 +50,7 @@ describe("CartItemComponent", () => {
         isMiniCart={true}
       />,
     )
-    const removeButton = screen.getByRole("button", { name: "✕" })
+    const removeButton = screen.getByTestId("remove-from-cart")
 
     fireEvent.click(removeButton)
     expect(removeFromCartMock).toHaveBeenCalledWith(1)

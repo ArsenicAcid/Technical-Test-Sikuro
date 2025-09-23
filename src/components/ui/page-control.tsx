@@ -29,19 +29,13 @@ const PageControl: React.FC<PageControlProps> = ({
         )}
         backdropFilter="blur(1px)"
       >
-        <Button
-          aria-label="Previous page"
-          onClick={handlePrev}
-          disabled={page === 0}
-          variant={"ghost"}
-        >
+        <Button onClick={handlePrev} disabled={page === 0} variant={"ghost"}>
           <FaArrowLeft />
         </Button>
         <span>
           {labels.PAGE} {page + 1} {labels.OF} {totalPages}
         </span>
         <Button
-          aria-label="Next page"
           onClick={handleNext}
           disabled={page === totalPages - 1}
           variant={"ghost"}

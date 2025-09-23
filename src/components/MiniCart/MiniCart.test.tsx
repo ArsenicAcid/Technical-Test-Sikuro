@@ -95,7 +95,7 @@ describe("MiniCart", () => {
     ;(useShoppingCart as any).mockReturnValue({ cartItems: [] })
 
     render(<MiniCart setIsHovered={setIsHovered} isHovered={true} />)
-    fireEvent.click(screen.getByText("✕"))
+    fireEvent.click(screen.getByTestId("close-button"))
 
     expect(setIsHovered).toHaveBeenCalledWith(false)
   })

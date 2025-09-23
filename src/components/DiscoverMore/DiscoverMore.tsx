@@ -7,6 +7,7 @@ import labels from "../../assets/labels"
 type DiscoverMoreProps = {
   products: Product[]
 }
+const isMobile = window.innerWidth < 768
 
 const DiscoverMore = ({ products }: DiscoverMoreProps) => {
   return (
@@ -16,23 +17,25 @@ const DiscoverMore = ({ products }: DiscoverMoreProps) => {
       direction={{ base: "column-reverse", md: "row" }}
       gap={4}
     >
-      <Flex
-        gap={4}
-        overflowX="auto"
-        py={4}
-        w="100%"
-        pr={{ base: 2, md: 322 }}
-        pl={2}
-      >
-        {products.map((product) => (
-          <ProductCard key={product.id} {...product} />
-        ))}
-      </Flex>
+      {!isMobile && (
+        <Flex
+          gap={4}
+          overflowX="auto"
+          py={4}
+          w="100%"
+          pr={{ base: 2, md: 322 }}
+          pl={2}
+        >
+          {products.map((product) => (
+            <ProductCard key={product.id} {...product} />
+          ))}
+        </Flex>
+      )}
       <Flex
         position={{ base: "relative", md: "absolute" }}
         right={0}
         top={4}
-        h={{ base: "auto", md: "480px" }}
+        h={{ base: "auto", md: "490px" }}
         w={{ base: "100%", md: "20%" }}
         p={4}
         flexDirection="column"
@@ -47,11 +50,25 @@ const DiscoverMore = ({ products }: DiscoverMoreProps) => {
           {labels.DISCOVERMORETEXT}
         </Text>
 
-        <Button as="a" colorPalette="blue" mt={4} alignSelf="flex-start">
-          <Link color="white" href="/store">
+        {isMobile && (
+          <Flex
+            gap={4}
+            overflowX="auto"
+            py={4}
+            w="100%"
+            pr={{ base: 2, md: 322 }}
+            pl={2}
+          >
+            {products.map((product) => (
+              <ProductCard key={product.id} {...product} />
+            ))}
+          </Flex>
+        )}
+        <Link color="white" href="/store" mt={4} w={"fit-content"}>
+          <Button as="a" colorPalette="blue" alignSelf="flex-start">
             {labels.DISCOVERMORE}
-          </Link>
-        </Button>
+          </Button>
+        </Link>
       </Flex>
     </Flex>
   )

@@ -45,23 +45,23 @@ const Header = () => {
       </Stack>
       <Flex gap="2" alignItems={"center"}>
         <ColorModeButton variant={"ghost"} />
-        <Button
-          w="1.2rem"
-          h="100%"
-          variant="ghost"
-          position="relative"
-          role="group"
-          onMouseEnter={() => setIsHovered(true)}
-          onTouchStart={() => setIsHovered(true)}
-          data-testid="cart-button"
+        <Link
+          href="/cart"
+          onClick={(e) => {
+            if (!window.matchMedia("(hover: hover)").matches) {
+              e.preventDefault()
+            }
+          }}
         >
-          <Link
-            href="/cart"
-            onClick={(e) => {
-              if (!window.matchMedia("(hover: hover)").matches) {
-                e.preventDefault()
-              }
-            }}
+          <Button
+            w="1.2rem"
+            h="100%"
+            variant="ghost"
+            position="relative"
+            role="group"
+            onMouseEnter={() => setIsHovered(true)}
+            onTouchStart={() => setIsHovered(true)}
+            data-testid="cart-button"
           >
             {useColorModeValue(
               <ShoppingCartIconBlack />,
@@ -86,8 +86,8 @@ const Header = () => {
             >
               {cartQuantity}
             </Flex>
-          </Link>
-        </Button>
+          </Button>
+        </Link>
         <MiniCart setIsHovered={setIsHovered} isHovered={isHovered} />
       </Flex>
     </Flex>
